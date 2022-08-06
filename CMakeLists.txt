@@ -8,7 +8,7 @@ endif()
 
 configure_file(version.h.in version.h)
 
-option(ENABLE_UNIT_TESTS "Enable unit tests" ON)
+option(ENABLE_UNIT_TESTS "Enable unit tests" OFF)
 message(STATUS "Enable testing: ${ENABLE_UNIT_TESTS}")
 if(ENABLE_UNIT_TESTS)
   # the following code to fetch googletest
@@ -58,48 +58,48 @@ add_executable(bulk
 ${bulk_cpp}
 )
 
-add_executable(g_test_bulk 
-test/g_test_bulk.h 
-test/test.h 
-test/test.cpp)
+# add_executable(g_test_bulk 
+# test/g_test_bulk.h 
+# test/test.h 
+# test/test.cpp)
 
-set_target_properties(bulk 
-g_test_bulk
-PROPERTIES
-    CXX_STANDARD 17
-    CXX_STANDARD_REQUIRED ON
-)
+# set_target_properties(bulk 
+# g_test_bulk
+# PROPERTIES
+#     CXX_STANDARD 17
+#     CXX_STANDARD_REQUIRED ON
+# )
 
 target_include_directories(bulk
     PRIVATE 
     include
     "${CMAKE_BINARY_DIR}"
 )
-target_link_libraries(g_test_bulk
-   gtest gtest_main
-)
+# target_link_libraries(g_test_bulk
+#    gtest gtest_main
+# )
 if (MSVC)
     target_compile_options(bulk 
     PRIVATE
     /EHsc /W4 /WX
         )    
-    target_compile_options(g_test_bulk 
-    PRIVATE
-    /EHsc /W4 /WX
-        )   
+    # target_compile_options(g_test_bulk 
+    # PRIVATE
+    # /EHsc /W4 /WX
+    #     )   
  else ()
     target_compile_options(bulk 
     PRIVATE
     -Wextra -pedantic -Werror
         )
-    target_compile_options(g_test_bulk 
-    PRIVATE
-    -Wextra -pedantic -Werror
-        )
+    # target_compile_options(g_test_bulk 
+    # PRIVATE
+    # -Wextra -pedantic -Werror
+    #     )
 endif()
 
-enable_testing()
-add_test(test_version g_test_bulk)
+# enable_testing()
+# add_test(test_version g_test_bulk)
 
 install(TARGETS bulk RUNTIME DESTINATION bin)
 
@@ -107,7 +107,7 @@ set(CPACK_GENERATOR DEB)
 set(CPACK_PACKAGE_VERSION_MAJOR "${PROJECT_VERSION_MAJOR}")
 set(CPACK_PACKAGE_VERSION_MINOR "${PROJECT_VERSION_MINOR}")
 set(CPACK_PACKAGE_VERSION_PATCH "${PROJECT_VERSION_PATCH}")
-set(CPACK_PACKAGE_CONTACT madim-neodart@rambler.ru)
+# set(CPACK_PACKAGE_CONTACT madim-neodart@rambler.ru)
 include(CPack)
 
 

@@ -1,86 +1,33 @@
 #include "Accumulator_Commands.h"
 
-bool Accumulator_Commands::empty() {
-	return _all_commands.empty();
-}
-
-void Accumulator_Commands::add_commands() {
-	using namespace std::chrono;
-	if(empty()) {
-		_time_first_command = duration_cast<seconds>(system_clock::now().time_since_epoch()).count();
-	}
-	_all_commands.emplace_back(std::move(_commands));
+void Accumulator_Commands::add_commands(const std::string& cmd) {
+	if (pool_all_commands.empty())
+		time_ = std::time(nullptr);
+	if (!cmd.empty())
+		pool_all_commands.emplace_back(cmd);
 }
 
 void Accumulator_Commands::clear_bulk() {
-	_all_commands.clear();
-	_number_commands = _number_commands_in_pull;
+	pool_all_commands.clear();
+	time_={};
 }
 
-void Accumulator_Commands::out_and_clear_bulk() {
-	notify_subscriber();
-	clear_bulk();
+size_t Accumulator_Commands::size() const {
+	return pool_all_commands.size();
 }
 
-void Accumulator_Commands::work_with_commands() {
+std::time_t Accumulator_Commands::time() const {
+	return time_;
+}
 
-	while(std::cin) {
-		while(0 < _number_commands) {
-			std::getline(std::cin, _commands);
+std::vector<std::string> Accumulator_Commands::get_cmds() const {
+	return pool_all_commands;
+}
 
-			if(std::cin.eof()) {
-				break;
-			}
-
-			if((_commands != "{") &&
-			   (_commands != "}") &&
-			   (!_commands.empty())) {
-				if(_number_brackets > 0) {
-					add_commands();
-				}
-				else {
-					_number_commands--;
-					add_commands();
-				}
-			}
-
-			if(_commands == "{") {
-				if((_number_brackets == 0) &&
-				   (!_all_commands.empty())
-				   ) {
-					out_and_clear_bulk();
-				}
-				_number_brackets++;
-			}
-			if(_commands == "}") {
-				if(_number_brackets <= 0) {
-					std::cerr << "Warning: Unexpected bracket\n";
-				}
-				else {
-					_number_brackets--;
-					if(_number_brackets <= 0) {
-						out_and_clear_bulk();
-					}
-				}
-			}
-		}
-
-		if(_number_brackets == 0) {
-			out_and_clear_bulk();
-		}
+std::ostream& operator<<(std::ostream& os, const Accumulator_Commands& bulk) {
+	os << "bulk: ";
+	for (const auto& it : bulk.pool_all_commands) {
+		os << it << (&it != &bulk.pool_all_commands.back() ? ", " : "\n");
 	}
-}
-
-void Accumulator_Commands::add_subscriber(Observer* obs) {
-	subscriber.push_back(obs);
-}
-
-void Accumulator_Commands::remove_subscriber() {
-	subscriber.clear();
-}
-
-void Accumulator_Commands::notify_subscriber() {
-	for(auto elem : subscriber) {
-		elem->notify(_time_first_command, _all_commands);
-	}
+	return os;
 }
