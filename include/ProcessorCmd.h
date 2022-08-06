@@ -1,42 +1,25 @@
 ﻿#pragma once
 
-#include <functional>
-#include <list>
-#include <memory>
+#include <mutex>
+#include <set>
 
-#include "PoolCmd.h"
-#include "InterpreterCmd.h"
-#include "Observer.h"
+#include "ContextCmd.h"
+#include "async.h"
 
-class ProcessorCmd : public Observer  {
+class ProcessorCmd  {
   public:
-    explicit ProcessorCmd(size_t bulk_size) 
-    : interpreter_{bulk_size} 
-    {}
-    ~ProcessorCmd() override = default;
-    void subscribe(const std::shared_ptr<StreamWriter>& observer) final;
-    void unsubscribe(const std::shared_ptr<StreamWriter>& observer) final;
-    void process(std::istream& is);
+    static ProcessorCmd& get_instance();
+    async::handle_t create_context(size_t bulk_size);
+    void destroy_context(const async::handle_t& handle);
+    void process(const async::handle_t& handle, const char* data, std::size_t size);
 
   private:
-    using observer_t = std::weak_ptr<StreamWriter>;
-    using publish_t = std::function<void(const std::time_t& bulk_time,
-                                         const std::vector<std::string>& cmds)>;
-    publish_t publish = [&](const std::time_t& bulk_time,
-                            const std::vector<std::string>& bulk) {
-      for(auto& it: observers_) {
-        if(!it.expired()) {
-          auto p = it.lock();
-          p->write(bulk_time, bulk);
-        }
-      }
-    };
+    ProcessorCmd() = default;
+    ~ProcessorCmd() = default;
 
-
-    std::list<observer_t> observers_{};
-    PoolCmd bulk_pool_{};
-
-    InterpreterCmd interpreter_;
+    std::mutex contexts_mutex_{};
+    std::map<async::handle_t, std::shared_ptr<ContextCmd>> contexts_;
+    uint8_t context_id_{};
 };
 
 
