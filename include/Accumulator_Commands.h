@@ -13,7 +13,6 @@
 class Accumulator_Commands
 {
 public:
-
 	Accumulator_Commands()= default;
 	~Accumulator_Commands()= default;
 	/**
@@ -26,31 +25,25 @@ public:
 	 *
 	 */
 	void clear_bulk();
-
 	/**
      * @brief Дать размер блока команд.
      * @return размер блока команд.
 	 */
-
     size_t size() const;
-
 	/**
 	 * @brief Время первой команды
 	 * 
 	 */
 	std::time_t time() const;
-    	
-	/**
+  	/**
      * @brief Дать все команды блока.
      * @return команды блока.
      */
     std::vector<std::string> get_cmds() const;
-
     /**
      * @brief Оператор вывода в поток блока команд.
      * @return
      */
-
 	friend std::ostream& operator <<(std::ostream& os, const Accumulator_Commands& bulk);
 
 private:
