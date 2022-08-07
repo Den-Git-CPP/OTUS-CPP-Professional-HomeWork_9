@@ -1,94 +1,164 @@
 #pragma once
 #include  "g_test_bulk.h"
 
-TEST(Test_Logger_in_Console, create_and_subscribe) {
-	 Test_Accumulator_Commands acc_commands(3);
-	 Test_Logger_in_Console log_in_console(&acc_commands);
+TEST(context_test_case, subscribe_test) {
+ ContextCmd context{1, 1};
+  auto test_writer = std::make_unique<TestWriter>();
+  context.subscribe(std::move(test_writer));
 
-	 EXPECT_EQ(acc_commands.subscriber.size(), 1);
+  std::string str = "cmd1\n";
+
+  context.process(str.c_str(), str.size());
+
+  EXPECT_EQ(TestWriter::get_bulk(), std::vector<std::string>{"cmd1"});
+  EXPECT_NE(TestWriter::get_time(), std::time_t{});
 }
 
-TEST(Test_Accumulator_Commands, work_with_commands_without_brackets) {
-	/*Test cmd1,cmd2,cmd3
-	*/
-	std::vector<std::string> commands{"cmd1","cmd2","cmd3"};
-	Test_Accumulator_Commands test_acc_commands(static_cast<int>(commands.size()));
-	Test_Logger_in_Console log_in_console(&test_acc_commands);
-	std::stringstream buffer, strm;
-	strm << "\tbulk: cmd1,cmd2,cmd3\n\n";
-	std::streambuf* sbuf = std::cout.rdbuf();
-	std::cout.rdbuf(buffer.rdbuf());
 
-	test_acc_commands.work_with_commands(commands);
+TEST(context_test_case, partial_bulk_test) {
+ ContextCmd context{3, 1};
+  auto test_writer = std::make_unique<TestWriter>();
+  context.subscribe(std::move(test_writer));
 
-	std::cout.rdbuf(sbuf);
-	EXPECT_EQ(buffer.str(), strm.str());
-	EXPECT_EQ(test_acc_commands._all_commands.size(), 0);
+  std::string str = "cmd1\ncmd2\n";
+
+  context.process(str.c_str(), str.size());
+  context.process(nullptr, 0, true);  
+
+  std::vector<std::string> result{"cmd1", "cmd2"};
+  EXPECT_EQ(TestWriter::get_bulk(), result);
+  EXPECT_NE(TestWriter::get_time(), std::time_t{});
 }
-TEST(Test_Accumulator_Commands, work_with_commands_EOF) {
-	/*Test cmd1,cmd2,EOF
-	*/
-	std::vector<std::string> commands{"cmd4","cmd5","EOF"};
-	Test_Accumulator_Commands test_acc_commands(static_cast<int>(commands.size()));
-	Test_Logger_in_Console log_in_console(&test_acc_commands);
-	std::stringstream buffer, strm;
-	strm << "\tbulk: cmd4,cmd5\n\n";
-	std::streambuf* sbuf = std::cout.rdbuf();
-	std::cout.rdbuf(buffer.rdbuf());
 
-	test_acc_commands.work_with_commands(commands);
+TEST(context_test_case, full_bulk_test) {
+ ContextCmd context{3, 1};
+  auto test_writer = std::make_unique<TestWriter>();
+  context.subscribe(std::move(test_writer));
 
-	std::cout.rdbuf(sbuf);
-	EXPECT_EQ(buffer.str(), strm.str());
-	EXPECT_EQ(test_acc_commands._all_commands.size(), 0);
+  std::string str = "cmd1\ncmd2\ncmd3\n";
+
+  context.process(str.c_str(), str.size());
+
+  std::vector<std::string> result{"cmd1", "cmd2", "cmd3"};
+  EXPECT_EQ(TestWriter::get_bulk(), result);
+  EXPECT_NE(TestWriter::get_time(), std::time_t{});
 }
-TEST(Test_Accumulator_Commands, work_with_commands_brackets) {
-	/*Test cmd1,cmd2 {
-	*      cmd3,cmd4 }
-	*/
-	std::vector<std::string> commands{"cmd1","cmd2","{",
-									   "cmd3","cmd4","}"
-									 };
 
-	Test_Accumulator_Commands test_acc_commands(static_cast<int>(commands.size()));
-	Test_Logger_in_Console log_in_console(&test_acc_commands);
-	std::stringstream buffer, strm;
-	strm << "\tbulk: cmd1,cmd2\n\n"
-		 << "\tbulk: cmd3,cmd4\n\n";
-	std::streambuf* sbuf = std::cout.rdbuf();
-	std::cout.rdbuf(buffer.rdbuf());
-	test_acc_commands.work_with_commands(commands);
-	std::cout.rdbuf(sbuf);
+TEST(context_test_case, full_tail_bulk_test) {
+ ContextCmd context{3, 1};
+  auto test_writer = std::make_unique<TestWriter>();
+  context.subscribe(std::move(test_writer));
 
-	EXPECT_EQ(buffer.str(), strm.str());
-	EXPECT_EQ(test_acc_commands._all_commands.size(), 0);
+  std::string str = "cmd1\ncmd2\ncmd3\ncmd4\ncmd5\n";
+
+  context.process(str.c_str(), str.size());
+  context.process(nullptr, 0, true);  
+
+  std::vector<std::string> result{"cmd4", "cmd5"};
+  EXPECT_EQ(TestWriter::get_bulk(), result);
+  EXPECT_NE(TestWriter::get_time(), std::time_t{});
 }
-TEST(Test_Accumulator_Commands, work_with_all_commands) {
-	/*Test all commands
-	*/
-	std::vector<std::string> commands{
-		"cmd1","cmd2", "{",
-		"cmd3", "cmd4","}",
-		"{",
-		"cmd5","cmd6",
-		"{",
-		"cmd7","cmd8",
-		"}",
-		"cmd9",
-		"}"
-	};
 
-	Test_Accumulator_Commands test_acc_commands(static_cast<int>(commands.size()));
-	Test_Logger_in_Console log_in_console(&test_acc_commands);
-	std::stringstream buffer, strm;
-	strm << "\tbulk: cmd1,cmd2\n\n"
-		<< "\tbulk: cmd3,cmd4\n\n"
-		<< "\tbulk: cmd5,cmd6,cmd7,cmd8,cmd9\n\n";
-	std::streambuf* sbuf = std::cout.rdbuf();
-	std::cout.rdbuf(buffer.rdbuf());
-	test_acc_commands.work_with_commands(commands);
-	std::cout.rdbuf(sbuf);
+TEST(context_test_case, partial_dyn_bulk_test) {
+ ContextCmd context{3, 1};
+  auto test_writer = std::make_unique<TestWriter>();
+  context.subscribe(std::move(test_writer));
 
-	EXPECT_EQ(buffer.str(), strm.str());
-	EXPECT_EQ(test_acc_commands._all_commands.size(), 0);
+  std::string str = "cmd1\ncmd2\n{\ncmd3\ncmd4\ncmd5\ncmd6\n";
+
+  context.process(str.c_str(), str.size());
+
+  std::vector<std::string> result{"cmd1", "cmd2"};
+  EXPECT_EQ(TestWriter::get_bulk(), result);
+  EXPECT_NE(TestWriter::get_time(), std::time_t{});
+}
+
+TEST(context_test_case, full_dyn_bulk_test) {
+ ContextCmd context{3, 1};
+  auto test_writer = std::make_unique<TestWriter>();
+  context.subscribe(std::move(test_writer));
+
+  std::string str = "cmd1\ncmd2\n{\ncmd3\ncmd4\ncmd5\ncmd6\n}\n";
+
+  context.process(str.c_str(), str.size());
+
+  std::vector<std::string> result{"cmd3", "cmd4", "cmd5", "cmd6"};
+  EXPECT_EQ(TestWriter::get_bulk(), result);
+  EXPECT_NE(TestWriter::get_time(), std::time_t{});
+}
+
+TEST(context_test_case, full_dyn_bulk_1_test) {
+ ContextCmd context{3, 1};
+  auto test_writer = std::make_unique<TestWriter>();
+  context.subscribe(std::move(test_writer));
+
+  std::string str = "cmd1\ncmd2\n{\ncmd3\n{\ncmd4\ncmd5\n}\ncmd6\n}\n";
+
+  context.process(str.c_str(), str.size());
+
+  std::vector<std::string> result{"cmd3", "cmd4", "cmd5", "cmd6"};
+  EXPECT_EQ(TestWriter::get_bulk(), result);
+  EXPECT_NE(TestWriter::get_time(), std::time_t{});
+}
+
+TEST(context_test_case, eof_bulk_test) {
+ ContextCmd context{3, 1};
+  auto test_writer = std::make_unique<TestWriter>();
+  context.subscribe(std::move(test_writer));
+
+  std::string str = "cmd1\ncmd2\n{\ncmd3\ncmd4\ncmd5\ncmd6\n}\ncmd7\ncmd8\n";
+
+  context.process(str.c_str(), str.size());
+  context.process(nullptr, 0, true);  
+
+  std::vector<std::string> result{"cmd7", "cmd8"};
+  EXPECT_EQ(TestWriter::get_bulk(), result);
+  EXPECT_NE(TestWriter::get_time(), std::time_t{});
+}
+
+TEST(context_test_case, metrics_test) {
+ ContextCmd context{3, 1};
+  auto test_writer = std::make_unique<TestWriter>();
+  context.subscribe(std::move(test_writer));
+
+  std::string str = "cmd1\ncmd2\n{\ncmd3\ncmd4\ncmd5\ncmd6\n}\ncmd7\ncmd8\n";
+
+  context.process(str.c_str(), str.size());
+  context.process(nullptr, 0, true);  
+  std::stringstream ss1;
+  ss1 << "test";
+  ss1 << " thread_id " << std::this_thread::get_id() << " - ";
+  ss1 << 3 << " bulk(s), ";
+  ss1 << 8 << " command(s) " << std::endl;
+
+  std::stringstream ss2;
+  ss2 <<TestWriter::get_metrics_stub();
+
+  EXPECT_EQ(ss1.str(), ss2.str());
+}
+
+TEST(context_test_case, context_id_test) {
+ ContextCmd context{1, 1};
+  auto test_writer = std::make_unique<TestWriter>();
+  context.subscribe(std::move(test_writer));
+
+  std::string str = "cmd1\n";
+
+  context.process(str.c_str(), str.size());
+
+  EXPECT_NE(TestWriter::get_context_id(), 1);
+}
+
+TEST(bulk_test_case, print_bulk_test) {
+ Bulk bulk;
+  bulk.push("cmd1");
+  bulk.push("cmd2");
+  bulk.push("cmd3");
+
+  std::stringstream ss;
+  ss << bulk;
+
+  std::string result{"bulk: cmd1, cmd2, cmd3\n"};
+
+  EXPECT_EQ(ss.str(), result);
 }
