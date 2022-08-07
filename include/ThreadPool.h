@@ -9,10 +9,6 @@
 #include <queue>
 #include <thread>
 
-/**
- * @brief Шаблон пула потоков.
- * @tparam N - количество потоков пула.
- */
 template <size_t N = 1>
 class ThreadPool {
   public:
@@ -26,9 +22,6 @@ class ThreadPool {
     ThreadPool& operator = (const ThreadPool&) = delete;
     ThreadPool& operator = (ThreadPool&&) = delete;
 
-    /**
-     * @brief Запуск всех потоков пула.
-     */
     void start() {
       for(auto i = 0; i < N; ++i) {
         threads_[i] = std::thread([this] {
@@ -49,9 +42,6 @@ class ThreadPool {
       }
     }
 
-    /**
-     * @brief Завершение работы всех потоков пула.
-     */
     void stop() {
       {
         std::unique_lock<std::mutex> lock(job_mutex_);
@@ -64,15 +54,6 @@ class ThreadPool {
       }
     }
 
-    /**
-     * @brief Добавление задачи для пула потоков.
-     *
-     * @tparam F - тип задачи.
-     * @tparam Args - типы аргументов задачи.
-     *
-     * @param f - задача.
-     * @tparam args - аргументы задачи.
-     */
     template<typename F, typename...Args>
     auto add_job(F&& f, Args&&... args) -> std::future<decltype(f(args...))> {
       std::unique_lock<std::mutex> lock(job_mutex_);
@@ -89,9 +70,6 @@ class ThreadPool {
       return func_ptr->get_future();
     }
 
-    /**
-     * @brief Дать id текущей выполняемой задачи.
-     */
     unsigned char get_job_id() {
       return job_id_;
     }
@@ -105,5 +83,3 @@ class ThreadPool {
     std::queue<std::function<void()>> jobs_{};
     std::array<std::thread, N>        threads_{};
 };
-
-

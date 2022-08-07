@@ -1,0 +1,36 @@
+﻿cmake_minimum_required(VERSION 3.15)
+
+find_package (Threads REQUIRED)
+
+file(GLOB_RECURSE SOURCES *.cpp *.h)
+
+add_library(${PROJECT_NAME} SHARED ${SOURCES})
+
+if (MSVC)
+    set_target_properties(${PROJECT_NAME} PROPERTIES
+                                          CXX_STANDARD 14
+                                          CXX_STANDARD_REQUIRED ON
+    )
+else ()
+    set_target_properties(${PROJECT_NAME} PROPERTIES
+                                          CXX_STANDARD 14
+                                          CXX_STANDARD_REQUIRED ON
+                                          COMPILE_OPTIONS -Wpedantic -Wall -Wextra
+    )
+endif ()
+
+target_link_libraries(${PROJECT_NAME} ${CMAKE_THREAD_LIBS_INIT})
+
+set_target_properties(${PROJECT_NAME} PROPERTIES VERSION ${PROJECT_VERSION} SOVERSION ${PROJECT_VERSION_MAJOR})
+
+install(TARGETS ${PROJECT_NAME} DESTINATION lib)
+install(FILES ../inc/async.h DESTINATION include)
+
+set(CPACK_GENERATOR DEB)
+set(CPACK_PACKAGE_NAME ${PROJECT_NAME})
+set(CPACK_PACKAGE_VERSION_MAJOR "${PROJECT_VERSION_MAJOR}")
+set(CPACK_PACKAGE_VERSION_MINOR "${PROJECT_VERSION_MINOR}")
+set(CPACK_PACKAGE_VERSION_PATCH "${PROJECT_VERSION_PATCH}")
+# set(CPACK_PACKAGE_CONTACT madim-neodart@rambler.ru)
+
+include (CPack)

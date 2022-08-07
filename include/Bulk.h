@@ -1,9 +1,9 @@
 ﻿#pragma once
-
 #include <ctime>
 #include <ostream>
 #include <string>
 #include <vector>
+
 
 class Bulk {
   public:

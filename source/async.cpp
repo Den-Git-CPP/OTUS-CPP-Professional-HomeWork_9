@@ -1,5 +1,4 @@
 #include "async.h"
-
 #include "ProcessorCmd.h"
 
 namespace async {

@@ -16,7 +16,6 @@ bool InterpreterCmd::interpret(const std::string& input, std::string& cmd) {
       if(--tokens_ == 0)
         return true;
   } else {
-
     cmd = input;
     if((tokens_ == 0) && (++size_ == bulk_size_)) {
       size_ = 0;
@@ -25,5 +24,3 @@ bool InterpreterCmd::interpret(const std::string& input, std::string& cmd) {
   }
   return false;
 }
-
-

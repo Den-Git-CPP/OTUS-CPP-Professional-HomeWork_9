@@ -1,10 +1,8 @@
 ﻿#pragma once
-
+#include "async.h"
 #include <mutex>
 #include <set>
-
 #include "ContextCmd.h"
-#include "async.h"
 
 class ProcessorCmd  {
   public:
@@ -21,5 +19,3 @@ class ProcessorCmd  {
     std::map<async::handle_t, std::shared_ptr<ContextCmd>> contexts_;
     uint8_t context_id_{};
 };
-
-

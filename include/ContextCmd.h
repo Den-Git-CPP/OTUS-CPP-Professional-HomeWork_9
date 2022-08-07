@@ -1,11 +1,13 @@
 ﻿#pragma once
-
 #include <functional>
 #include <list>
 #include <memory>
+#include <algorithm>
+#include <istream>
+#include <iostream>
+#include <thread>
 
 #include "Bulk.h"
-
 #include "InterpreterCmd.h"
 #include "Observer.h"
 #include "Metrics.h"
@@ -30,4 +32,5 @@ class ContextCmd : public Observer  {
     std::string data_;
     uint8_t id_;
 };
+
 

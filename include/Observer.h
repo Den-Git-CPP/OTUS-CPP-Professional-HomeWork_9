@@ -1,12 +1,14 @@
 ﻿#pragma once
-
+#include<memory>
 #include "StreamWriter.h"
 
-#include<memory>
+using observer_t = std::unique_ptr<StreamWriter>;
 
 class Observer {
   public:
     virtual ~Observer() = default;
-    virtual void subscribe(const std::shared_ptr<StreamWriter>& observer) = 0;
-    virtual void unsubscribe(const std::shared_ptr<StreamWriter>& observer) = 0;
+    virtual void subscribe(observer_t observer) = 0;
+    virtual void publish(const Bulk& bulk) = 0;
 };
+
+

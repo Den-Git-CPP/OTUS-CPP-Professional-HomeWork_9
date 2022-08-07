@@ -12,19 +12,21 @@ std::ostream& operator <<(std::ostream& os, const Metrics& metrics) {
   bool add_thread_num = metrics.storage_.size() > 1;
   size_t thread_num{1};
   for(const auto& it: metrics.storage_) {
+    // Вывод информации о потоке.
     os << metrics.name_;
     if(add_thread_num)
       os << thread_num++;
     os << " thread_id " << it.first << " - ";
 
+    // Вывод количества обработанных строк.
     if(it.second.get_rows() > 0)
       os << it.second.get_rows() << " row(s), ";
- 
+
+    // Вывод количества обработанных блоков команд.
     os << it.second.get_bulks() << " bulk(s), ";
-   
+
+    // Вывод количества обработанных команд.
     os << it.second.get_cmds() << " command(s) " << std::endl;
   }
   return os;
 }
-
-

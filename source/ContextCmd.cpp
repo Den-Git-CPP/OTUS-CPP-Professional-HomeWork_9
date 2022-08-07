@@ -1,9 +1,4 @@
-﻿#include <algorithm>
-#include <istream>
-#include <iostream>
-#include <thread>
-
-#include "ContextCmd.h"
+﻿#include "ContextCmd.h"
 
 void ContextCmd::subscribe(observer_t observer) {
   auto it = std::find(observers_.begin(), observers_.end(), observer);
@@ -49,5 +44,3 @@ void ContextCmd::print_metrics(std::ostream& os) {
     os << it->get_metrics();
   }
 }
-
-
