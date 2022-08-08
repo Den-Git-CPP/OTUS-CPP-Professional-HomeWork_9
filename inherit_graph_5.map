@@ -1,0 +1,7 @@
+<map id="Иерархия классов. Графический вид." name="Иерархия классов. Графический вид.">
+<area shape="rect" id="node1" href="$class_stream_writer.html" title="Интерфейс для классов выводящих блок команд в поток." alt="" coords="16,56,115,83"/>
+<area shape="rect" id="node2" href="$class_write_consoler.html" title="Класс вывода блока команд в консоль." alt="" coords="173,31,276,57"/>
+<area shape="rect" id="node3" href="$class_write_filer.html" title="Класс вывода блока команд в файл." alt="" coords="186,93,263,120"/>
+<area shape="rect" id="node4" href="$class_thread_pool.html" title="Шаблон пула потоков." alt="" coords="5,5,125,32"/>
+<area shape="rect" id="node5" href="$class_thread_pool.html" title=" " alt="" coords="7,107,124,133"/>
+</map>

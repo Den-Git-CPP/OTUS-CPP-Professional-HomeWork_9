@@ -1,0 +1,5 @@
+<map id="StreamWriter" name="StreamWriter">
+<area shape="rect" id="node1" title="Интерфейс для классов выводящих блок команд в поток." alt="" coords="65,5,163,32"/>
+<area shape="rect" id="node2" href="$class_write_consoler.html" title="Класс вывода блока команд в консоль." alt="" coords="5,80,108,107"/>
+<area shape="rect" id="node3" href="$class_write_filer.html" title="Класс вывода блока команд в файл." alt="" coords="133,80,210,107"/>
+</map>

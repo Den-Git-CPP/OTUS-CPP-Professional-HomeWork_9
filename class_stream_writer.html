@@ -1,0 +1,214 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Command_Packetge: Класс StreamWriter</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Command_Packetge<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+   <div id="projectbrief">Программа для пакетной ассинхронной обработки команд.</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search",'Поиск','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="class_stream_writer-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle"><div class="title">Класс StreamWriter<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Интерфейс для классов выводящих блок команд в поток.  
+ <a href="class_stream_writer.html#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_stream_writer_8h_source.html">StreamWriter.h</a>&gt;</code></p>
+<div class="dynheader">
+Граф наследования:StreamWriter:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_stream_writer__inherit__graph.png" border="0" usemap="#a_stream_writer_inherit__map" alt="Inheritance graph"/></div>
+<map name="a_stream_writer_inherit__map" id="a_stream_writer_inherit__map">
+<area shape="rect" title="Интерфейс для классов выводящих блок команд в поток." alt="" coords="65,5,163,32"/>
+<area shape="rect" href="class_write_consoler.html" title="Класс вывода блока команд в консоль." alt="" coords="5,80,108,107"/>
+<area shape="rect" href="class_write_filer.html" title="Класс вывода блока команд в файл." alt="" coords="133,80,210,107"/>
+</map>
+<center><span class="legend">[<a href="graph_legend.html">см. легенду</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:a6d27ab89331ee5d2443a0f09bb3f41ce"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stream_writer.html#a6d27ab89331ee5d2443a0f09bb3f41ce">~StreamWriter</a> ()=default</td></tr>
+<tr class="separator:a6d27ab89331ee5d2443a0f09bb3f41ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a556220cc667009eb19cfe9edc22b368b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stream_writer.html#a556220cc667009eb19cfe9edc22b368b">write</a> (uint8_t context_id, const <a class="el" href="class_bulk.html">Bulk</a> &amp;bulk)=0</td></tr>
+<tr class="memdesc:a556220cc667009eb19cfe9edc22b368b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Запись блока команд в поток.  <a href="class_stream_writer.html#a556220cc667009eb19cfe9edc22b368b">Подробнее...</a><br /></td></tr>
+<tr class="separator:a556220cc667009eb19cfe9edc22b368b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7f47d618f2198405123083c3e6ac1e1"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="class_metrics.html">Metrics</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stream_writer.html#ae7f47d618f2198405123083c3e6ac1e1">get_metrics</a> ()=0</td></tr>
+<tr class="memdesc:ae7f47d618f2198405123083c3e6ac1e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Дать метрики работы потоков.  <a href="class_stream_writer.html#ae7f47d618f2198405123083c3e6ac1e1">Подробнее...</a><br /></td></tr>
+<tr class="separator:ae7f47d618f2198405123083c3e6ac1e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p >Интерфейс для классов выводящих блок команд в поток. </p>
+</div><h2 class="groupheader">Конструктор(ы)</h2>
+<a id="a6d27ab89331ee5d2443a0f09bb3f41ce" name="a6d27ab89331ee5d2443a0f09bb3f41ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d27ab89331ee5d2443a0f09bb3f41ce">&#9670;&nbsp;</a></span>~StreamWriter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual StreamWriter::~StreamWriter </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Методы</h2>
+<a id="ae7f47d618f2198405123083c3e6ac1e1" name="ae7f47d618f2198405123083c3e6ac1e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7f47d618f2198405123083c3e6ac1e1">&#9670;&nbsp;</a></span>get_metrics()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="class_metrics.html">Metrics</a> &amp; StreamWriter::get_metrics </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Дать метрики работы потоков. </p>
+<dl class="section return"><dt>Возвращает</dt><dd>метрики. </dd></dl>
+
+<p>Замещается в <a class="el" href="class_write_consoler.html#aa2aa77cf5fc31defcc495ec71a1d692f">WriteConsoler</a> и <a class="el" href="class_write_filer.html#a17fe263a2fa0dc009ca6dc32b29dfeea">WriteFiler</a>.</p>
+
+</div>
+</div>
+<a id="a556220cc667009eb19cfe9edc22b368b" name="a556220cc667009eb19cfe9edc22b368b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a556220cc667009eb19cfe9edc22b368b">&#9670;&nbsp;</a></span>write()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void StreamWriter::write </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>context_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_bulk.html">Bulk</a> &amp;&#160;</td>
+          <td class="paramname"><em>bulk</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Запись блока команд в поток. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">context_id</td><td>- id контекста из которого производится вывод. </td></tr>
+    <tr><td class="paramname">bulk</td><td>- блок команд. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Замещается в <a class="el" href="class_write_consoler.html#a578040cef8b8ece6a3a7fcf6b9f46420">WriteConsoler</a> и <a class="el" href="class_write_filer.html#a9432c474071bcc0996024697d9f7d22a">WriteFiler</a>.</p>
+
+</div>
+</div>
+<hr/>Объявления и описания членов класса находятся в файле:<ul>
+<li>lib/<a class="el" href="_stream_writer_8h_source.html">StreamWriter.h</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
+</small></address>
+</body>
+</html>

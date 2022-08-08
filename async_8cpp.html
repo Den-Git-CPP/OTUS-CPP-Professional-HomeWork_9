@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Command_Packetge: Файл lib/async.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Command_Packetge<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+   <div id="projectbrief">Программа для пакетной ассинхронной обработки команд.</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search",'Поиск','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_97aefd0d527b934f1d99a682da8fe6a9.html">lib</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#namespaces">Пространства имен</a> &#124;
+<a href="#func-members">Функции</a>  </div>
+  <div class="headertitle"><div class="title">Файл async.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="async_8h_source.html">async.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_processor_cmd_8h_source.html">ProcessorCmd.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Граф включаемых заголовочных файлов для async.cpp:</div>
+<div class="dyncontent">
+<div class="center"><img src="async_8cpp__incl.png" border="0" usemap="#alib_2async_8cpp" alt=""/></div>
+<map name="alib_2async_8cpp" id="alib_2async_8cpp">
+<area shape="rect" title=" " alt="" coords="339,5,436,32"/>
+<area shape="rect" href="async_8h.html" title=" " alt="" coords="299,155,366,181"/>
+<area shape="rect" href="_processor_cmd_8h.html" title=" " alt="" coords="383,80,501,107"/>
+<area shape="rect" title=" " alt="" coords="5,229,71,256"/>
+<area shape="rect" title=" " alt="" coords="517,155,575,181"/>
+<area shape="rect" title=" " alt="" coords="599,155,639,181"/>
+<area shape="rect" href="_context_cmd_8h.html" title=" " alt="" coords="391,155,493,181"/>
+<area shape="rect" title=" " alt="" coords="791,229,869,256"/>
+<area shape="rect" title=" " alt="" coords="893,229,932,256"/>
+<area shape="rect" title=" " alt="" coords="36,304,104,331"/>
+<area shape="rect" title=" " alt="" coords="505,229,579,256"/>
+<area shape="rect" title=" " alt="" coords="604,229,669,256"/>
+<area shape="rect" title=" " alt="" coords="694,229,766,256"/>
+<area shape="rect" title=" " alt="" coords="434,453,493,480"/>
+<area shape="rect" href="_bulk_8h.html" title=" " alt="" coords="127,453,186,480"/>
+<area shape="rect" href="_interpreter_cmd_8h.html" title=" " alt="" coords="465,379,584,405"/>
+<area shape="rect" href="_observer_8h.html" title=" " alt="" coords="146,229,231,256"/>
+<area shape="rect" href="_metrics_8h.html" title=" " alt="" coords="311,379,386,405"/>
+<area shape="rect" title=" " alt="" coords="27,528,81,555"/>
+<area shape="rect" title=" " alt="" coords="199,528,269,555"/>
+<area shape="rect" title=" " alt="" coords="295,528,349,555"/>
+<area shape="rect" title=" " alt="" coords="113,528,171,555"/>
+<area shape="rect" href="_stream_writer_8h.html" title=" " alt="" coords="128,304,236,331"/>
+<area shape="rect" title=" " alt="" coords="363,453,409,480"/>
+</map>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
+Пространства имен</h2></td></tr>
+<tr class="memitem:namespaceasync"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceasync.html">async</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:af03c27fece6ea59dfebe12c19b4bdf2b"><td class="memItemLeft" align="right" valign="top">handle_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceasync.html#af03c27fece6ea59dfebe12c19b4bdf2b">async::connect</a> (std::size_t bulk_size)</td></tr>
+<tr class="separator:af03c27fece6ea59dfebe12c19b4bdf2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1b54e89e951488a8dd79e720f3d8f8b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceasync.html#aa1b54e89e951488a8dd79e720f3d8f8b">async::receive</a> (handle_t handle, const char *data, std::size_t size)</td></tr>
+<tr class="separator:aa1b54e89e951488a8dd79e720f3d8f8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04233bf9bec326f7bcb4e1a9d5b8ee9d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceasync.html#a04233bf9bec326f7bcb4e1a9d5b8ee9d">async::disconnect</a> (handle_t handle)</td></tr>
+<tr class="separator:a04233bf9bec326f7bcb4e1a9d5b8ee9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
+</small></address>
+</body>
+</html>

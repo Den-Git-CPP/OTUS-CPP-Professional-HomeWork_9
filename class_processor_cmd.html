@@ -1,0 +1,235 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Command_Packetge: Класс ProcessorCmd</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Command_Packetge<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+   <div id="projectbrief">Программа для пакетной ассинхронной обработки команд.</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search",'Поиск','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="#pub-static-methods">Открытые статические члены</a> &#124;
+<a href="class_processor_cmd-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle"><div class="title">Класс ProcessorCmd</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Класс обработчика команд.  
+ <a href="class_processor_cmd.html#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_processor_cmd_8h_source.html">ProcessorCmd.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:a996771b4178c5ef1ea9743cd59e9d189"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceasync.html#af4c6fcc783fdc77b350e4588b52776c0">async::handle_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_processor_cmd.html#a996771b4178c5ef1ea9743cd59e9d189">create_context</a> (size_t bulk_size)</td></tr>
+<tr class="memdesc:a996771b4178c5ef1ea9743cd59e9d189"><td class="mdescLeft">&#160;</td><td class="mdescRight">Создать контекст обработки блоков команд.  <a href="class_processor_cmd.html#a996771b4178c5ef1ea9743cd59e9d189">Подробнее...</a><br /></td></tr>
+<tr class="separator:a996771b4178c5ef1ea9743cd59e9d189"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70a4934df9d9c0609884623d2a33837d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_processor_cmd.html#a70a4934df9d9c0609884623d2a33837d">destroy_context</a> (const <a class="el" href="namespaceasync.html#af4c6fcc783fdc77b350e4588b52776c0">async::handle_t</a> &amp;handle)</td></tr>
+<tr class="memdesc:a70a4934df9d9c0609884623d2a33837d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Уничтожить контекст обработки блоков команд.  <a href="class_processor_cmd.html#a70a4934df9d9c0609884623d2a33837d">Подробнее...</a><br /></td></tr>
+<tr class="separator:a70a4934df9d9c0609884623d2a33837d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad26566aeb86b41254737e35843a9ff9a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_processor_cmd.html#ad26566aeb86b41254737e35843a9ff9a">process</a> (const <a class="el" href="namespaceasync.html#af4c6fcc783fdc77b350e4588b52776c0">async::handle_t</a> &amp;handle, const char *data, std::size_t size)</td></tr>
+<tr class="memdesc:ad26566aeb86b41254737e35843a9ff9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Обработать входные данные, содержащие команды.  <a href="class_processor_cmd.html#ad26566aeb86b41254737e35843a9ff9a">Подробнее...</a><br /></td></tr>
+<tr class="separator:ad26566aeb86b41254737e35843a9ff9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Открытые статические члены</h2></td></tr>
+<tr class="memitem:a2f319fe30c36ae8307b4b2ff6ce10135"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_processor_cmd.html">ProcessorCmd</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_processor_cmd.html#a2f319fe30c36ae8307b4b2ff6ce10135">get_instance</a> ()</td></tr>
+<tr class="memdesc:a2f319fe30c36ae8307b4b2ff6ce10135"><td class="mdescLeft">&#160;</td><td class="mdescRight">Дать объект класса CmdProcessor.  <a href="class_processor_cmd.html#a2f319fe30c36ae8307b4b2ff6ce10135">Подробнее...</a><br /></td></tr>
+<tr class="separator:a2f319fe30c36ae8307b4b2ff6ce10135"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p >Класс обработчика команд. </p>
+</div><h2 class="groupheader">Методы</h2>
+<a id="a996771b4178c5ef1ea9743cd59e9d189" name="a996771b4178c5ef1ea9743cd59e9d189"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a996771b4178c5ef1ea9743cd59e9d189">&#9670;&nbsp;</a></span>create_context()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespaceasync.html#af4c6fcc783fdc77b350e4588b52776c0">async::handle_t</a> ProcessorCmd::create_context </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>bulk_size</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Создать контекст обработки блоков команд. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bulk_size</td><td>- размер блока команд. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>handle контекста обработки команд. </dd></dl>
+
+</div>
+</div>
+<a id="a70a4934df9d9c0609884623d2a33837d" name="a70a4934df9d9c0609884623d2a33837d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70a4934df9d9c0609884623d2a33837d">&#9670;&nbsp;</a></span>destroy_context()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ProcessorCmd::destroy_context </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespaceasync.html#af4c6fcc783fdc77b350e4588b52776c0">async::handle_t</a> &amp;&#160;</td>
+          <td class="paramname"><em>handle</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Уничтожить контекст обработки блоков команд. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">handle</td><td>- handle контекста обработки команд. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a2f319fe30c36ae8307b4b2ff6ce10135" name="a2f319fe30c36ae8307b4b2ff6ce10135"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f319fe30c36ae8307b4b2ff6ce10135">&#9670;&nbsp;</a></span>get_instance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_processor_cmd.html">ProcessorCmd</a> &amp; ProcessorCmd::get_instance </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Дать объект класса CmdProcessor. </p>
+<dl class="section return"><dt>Возвращает</dt><dd>объект класса CmdProcessor. </dd></dl>
+
+</div>
+</div>
+<a id="ad26566aeb86b41254737e35843a9ff9a" name="ad26566aeb86b41254737e35843a9ff9a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad26566aeb86b41254737e35843a9ff9a">&#9670;&nbsp;</a></span>process()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ProcessorCmd::process </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespaceasync.html#af4c6fcc783fdc77b350e4588b52776c0">async::handle_t</a> &amp;&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Обработать входные данные, содержащие команды. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">handle</td><td>- handle контекста обработки команд. </td></tr>
+    <tr><td class="paramname">data</td><td>- обрабатываемые данные. </td></tr>
+    <tr><td class="paramname">size</td><td>- размер данных. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/>Объявления и описания членов классов находятся в файлах:<ul>
+<li>lib/<a class="el" href="_processor_cmd_8h_source.html">ProcessorCmd.h</a></li>
+<li>lib/<a class="el" href="_processor_cmd_8cpp.html">ProcessorCmd.cpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
+</small></address>
+</body>
+</html>

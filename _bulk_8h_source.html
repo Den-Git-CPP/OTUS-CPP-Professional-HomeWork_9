@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Command_Packetge: Исходный файл lib/Bulk.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Command_Packetge<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+   <div id="projectbrief">Программа для пакетной ассинхронной обработки команд.</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search",'Поиск','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_97aefd0d527b934f1d99a682da8fe6a9.html">lib</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">Bulk.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_bulk_8h.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &lt;ctime&gt;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;ostream&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="class_bulk.html">   10</a></span><span class="keyword">class </span><a class="code hl_class" href="class_bulk.html">Bulk</a> {</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="class_bulk.html#af32a5b4481c1f42a97bd4c878154a086">   12</a></span>    <a class="code hl_function" href="class_bulk.html#af32a5b4481c1f42a97bd4c878154a086">Bulk</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="class_bulk.html#aa7314ee2a3295bd923a5f76e4afd194f">   13</a></span>    <a class="code hl_function" href="class_bulk.html#aa7314ee2a3295bd923a5f76e4afd194f">~Bulk</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_bulk.html#af93787f74fa130b04a0e66eb0e1efa3f">push</a>(<span class="keyword">const</span> std::string&amp; cmd);</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_bulk.html#a6b425344e28f95902e1d5c21d2cb2922">clear</a>();</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keywordtype">size_t</span> <a class="code hl_function" href="class_bulk.html#a2c4dcb825d6091bb7a5224194aadd1a5">size</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    std::vector&lt;std::string&gt; <a class="code hl_function" href="class_bulk.html#a9fda799d9f9d0e1f25b96030eba7caae">get_cmds</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    std::time_t <a class="code hl_function" href="class_bulk.html#ae57f3c748bdc19ca9b0c44b83b9af591">time</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keyword">friend</span> std::ostream&amp; <a class="code hl_friend" href="class_bulk.html#a8d7814b4aab9dd5e06e09b27c86d165c">operator &lt;&lt;</a>(std::ostream&amp; os, <span class="keyword">const</span> <a class="code hl_class" href="class_bulk.html">Bulk</a>&amp; bulk);</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    std::vector&lt;std::string&gt; pool_ {};</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    std::time_t time_ {};</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>};</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="ttc" id="aclass_bulk_html"><div class="ttname"><a href="class_bulk.html">Bulk</a></div><div class="ttdoc">Класс блока команд.</div><div class="ttdef"><b>Definition:</b> Bulk.h:10</div></div>
+<div class="ttc" id="aclass_bulk_html_a2c4dcb825d6091bb7a5224194aadd1a5"><div class="ttname"><a href="class_bulk.html#a2c4dcb825d6091bb7a5224194aadd1a5">Bulk::size</a></div><div class="ttdeci">size_t size() const</div><div class="ttdoc">Дать размер блока команд.</div><div class="ttdef"><b>Definition:</b> Bulk.cpp:15</div></div>
+<div class="ttc" id="aclass_bulk_html_a6b425344e28f95902e1d5c21d2cb2922"><div class="ttname"><a href="class_bulk.html#a6b425344e28f95902e1d5c21d2cb2922">Bulk::clear</a></div><div class="ttdeci">void clear()</div><div class="ttdoc">Очистка блока команд.</div><div class="ttdef"><b>Definition:</b> Bulk.cpp:10</div></div>
+<div class="ttc" id="aclass_bulk_html_a8d7814b4aab9dd5e06e09b27c86d165c"><div class="ttname"><a href="class_bulk.html#a8d7814b4aab9dd5e06e09b27c86d165c">Bulk::operator&lt;&lt;</a></div><div class="ttdeci">friend std::ostream &amp; operator&lt;&lt;(std::ostream &amp;os, const Bulk &amp;bulk)</div><div class="ttdoc">Оператор вывода в поток блока команд.</div><div class="ttdef"><b>Definition:</b> Bulk.cpp:27</div></div>
+<div class="ttc" id="aclass_bulk_html_a9fda799d9f9d0e1f25b96030eba7caae"><div class="ttname"><a href="class_bulk.html#a9fda799d9f9d0e1f25b96030eba7caae">Bulk::get_cmds</a></div><div class="ttdeci">std::vector&lt; std::string &gt; get_cmds() const</div><div class="ttdoc">Дать все команды блока.</div><div class="ttdef"><b>Definition:</b> Bulk.cpp:19</div></div>
+<div class="ttc" id="aclass_bulk_html_aa7314ee2a3295bd923a5f76e4afd194f"><div class="ttname"><a href="class_bulk.html#aa7314ee2a3295bd923a5f76e4afd194f">Bulk::~Bulk</a></div><div class="ttdeci">~Bulk()=default</div></div>
+<div class="ttc" id="aclass_bulk_html_ae57f3c748bdc19ca9b0c44b83b9af591"><div class="ttname"><a href="class_bulk.html#ae57f3c748bdc19ca9b0c44b83b9af591">Bulk::time</a></div><div class="ttdeci">std::time_t time() const</div><div class="ttdoc">Дать время начала формирования блока команд.</div><div class="ttdef"><b>Definition:</b> Bulk.cpp:23</div></div>
+<div class="ttc" id="aclass_bulk_html_af32a5b4481c1f42a97bd4c878154a086"><div class="ttname"><a href="class_bulk.html#af32a5b4481c1f42a97bd4c878154a086">Bulk::Bulk</a></div><div class="ttdeci">Bulk()=default</div></div>
+<div class="ttc" id="aclass_bulk_html_af93787f74fa130b04a0e66eb0e1efa3f"><div class="ttname"><a href="class_bulk.html#af93787f74fa130b04a0e66eb0e1efa3f">Bulk::push</a></div><div class="ttdeci">void push(const std::string &amp;cmd)</div><div class="ttdoc">Поместить команду в блок.</div><div class="ttdef"><b>Definition:</b> Bulk.cpp:3</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
+</small></address>
+</body>
+</html>
