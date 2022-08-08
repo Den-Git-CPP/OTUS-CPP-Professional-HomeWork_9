@@ -9,7 +9,7 @@
 #include <queue>
 #include <thread>
 
-template <size_t N = 1>
+template <long long unsigned int N = 1>
 class ThreadPool {
   public:
     explicit ThreadPool() = default;
@@ -23,7 +23,7 @@ class ThreadPool {
     ThreadPool& operator = (ThreadPool&&) = delete;
 
     void start() {
-      for(auto i = 0; i < N; ++i) {
+      for(long long unsigned int i = 0; i < N; ++i) {
         threads_[i] = std::thread([this] {
           for(;;) {
             std::function<void()> task;
@@ -48,7 +48,7 @@ class ThreadPool {
         stop_ = true;
       }
       job_avail_.notify_all();
-      for(auto i = 0; i < N; ++i) {
+      for(long long unsigned int i = 0; i < N; ++i) {
         if(threads_[i].joinable())
           threads_[i].join();
       }
