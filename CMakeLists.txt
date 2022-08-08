@@ -22,18 +22,6 @@ file(GLOB async_lib_all
 add_library(async_lib SHARED ${async_lib_all}
 )
 
-# add_executable(g_test_bulk 
-# test/g_test_bulk.h 
-# test/test.h 
-# test/test.cpp)
-
-# set_target_properties(async 
-# g_test_async
-# PROPERTIES
-#     CXX_STANDARD 20
-#     CXX_STANDARD_REQUIRED ON
-# )
-
 set_target_properties(${PROJECT_NAME} PROPERTIES
     CXX_STANDARD 20
     CXX_STANDARD_REQUIRED ON
@@ -55,10 +43,6 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
     ${EXTRA_LINKS}
 )
 
-# target_link_libraries(g_test_bulk
-#    gtest gtest_main
-# )
-
 if (MSVC)
     target_compile_options(${PROJECT_NAME} 
     PRIVATE
@@ -68,10 +52,6 @@ if (MSVC)
     PRIVATE
     /EHsc /W4 /WX
     )
-    # target_compile_options(g_test_bulk 
-    # PRIVATE
-    # /EHsc /W4 /WX
-    # )   
  else ()
     target_compile_options(${PROJECT_NAME} 
     PRIVATE
@@ -81,15 +61,9 @@ if (MSVC)
     PRIVATE
     -Wall -Wextra -pedantic -Werror
     )
-    # target_compile_options(g_test_bulk 
-    # PRIVATE
-    # -Wall -Wextra -pedantic -Werror
-    #     )
 endif()
 
 add_subdirectory(test)
-# enable_testing()
-# add_test(test_version g_test_bulk)
 
 install(TARGETS ${PROJECT_NAME} RUNTIME DESTINATION bin)
 
@@ -97,8 +71,5 @@ set(CPACK_GENERATOR DEB)
 set(CPACK_PACKAGE_VERSION_MAJOR "${PROJECT_VERSION_MAJOR}")
 set(CPACK_PACKAGE_VERSION_MINOR "${PROJECT_VERSION_MINOR}")
 set(CPACK_PACKAGE_VERSION_PATCH "${PROJECT_VERSION_PATCH}")
- set(CPACK_PACKAGE_CONTACT madim-neodart@rambler.ru)
+set(CPACK_PACKAGE_CONTACT madim-neodart@rambler.ru)
 include(CPack)
-
-
-

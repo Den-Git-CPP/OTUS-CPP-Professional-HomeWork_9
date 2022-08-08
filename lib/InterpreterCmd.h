@@ -1,17 +1,31 @@
 ﻿#pragma once
 
 #include <string>
-
+/**
+ * @brief Класс интерпретатора команд.
+ */
 class InterpreterCmd {
-  public:
-    explicit InterpreterCmd(size_t bulk_size) : bulk_size_(bulk_size) {
-    }
+public:
+  /**
+  * @brief Конструктор.
+  * @param bulk_size - макисмальный размер блока команд.
+  */
+	explicit InterpreterCmd(size_t bulk_size): bulk_size_(bulk_size) {}
 
-    ~InterpreterCmd() = default;
-    bool interpret(const std::string& input, std::string& cmd);
+	~InterpreterCmd() = default;
+	/**
+	 * @brief Интерпретация принятой команды.
+	 * @param input - входная команда.
+	 * @param cmd - команда для помещения в пул.
+	 * @return true - заверешен блок команд, false - блок команд не завершен.
+	 */
+	bool interpret(const std::string& input, std::string& cmd);
 
-  private:
-    size_t bulk_size_{};
-    size_t size_{};
-    size_t tokens_{};
+private:
+/// Максимальный размер блока команд.
+	size_t bulk_size_ {};
+  /// Текущий размер блока команд.
+	size_t size_ {};
+  /// Количество незакрытых токенов.
+	size_t tokens_ {};
 };
